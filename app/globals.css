@@ -335,6 +335,19 @@ input[type="range"]::-webkit-slider-thumb {
   }
 }
 
+/* Cinematic slow zoom for full-bleed hero imagery */
+@media (prefers-reduced-motion: no-preference) {
+  .ken-burns {
+    animation: kenBurns 22s var(--ease-out-quint) forwards;
+    transform-origin: 60% 70%;
+    will-change: transform;
+  }
+  @keyframes kenBurns {
+    from { transform: scale(1.14); }
+    to { transform: scale(1.02); }
+  }
+}
+
 /* MapLibre dark tweaks */
 .maplibregl-ctrl-attrib {
   background: color-mix(in oklch, var(--base) 70%, transparent) !important;
