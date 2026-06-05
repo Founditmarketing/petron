@@ -11,6 +11,12 @@ export const metadata: Metadata = {
     "Petron is a high-quality general contractor, fuel-system installer, and real-estate developer built on relationships, trust, and no surprises.",
 };
 
+const history = [
+  { k: "Roots", v: "Petron started in Central Louisiana doing the unglamorous, essential work: sitework, concrete, and steel for businesses that needed a contractor they could trust." },
+  { k: "Specialization", v: "Fuel-system installation became a signature: underground storage tanks, canopies, dispensers, and monitoring for stations across the region." },
+  { k: "Reach", v: "Today Petron builds across the U.S. for national brands and government clients, while developing and leasing its own commercial real estate at home." },
+];
+
 const values = [
   {
     title: "Relationships",
@@ -74,41 +80,51 @@ export default async function AboutPage() {
         </div>
       </section>
 
-      {/* History */}
+      {/* History — connected timeline (chronological progression) */}
       <section className="border-y border-line-soft bg-base-2">
         <div className="mx-auto max-w-7xl px-5 py-20 sm:px-8">
           <SectionHeading eyebrow="The history of Petron" title={<>From Alexandria, <span className="text-amber">outward</span></>} />
-          <div className="mt-10 grid gap-8 md:grid-cols-3">
-            {[
-              { k: "Roots", v: "Petron started in Central Louisiana doing the unglamorous, essential work: sitework, concrete, and steel for businesses that needed a contractor they could trust." },
-              { k: "Specialization", v: "Fuel-system installation became a signature: underground storage tanks, canopies, dispensers, and monitoring for stations across the region." },
-              { k: "Reach", v: "Today Petron builds across the U.S. for national brands and government clients, while developing and leasing its own commercial real estate at home." },
-            ].map((b, i) => (
-              <Reveal key={b.k} delay={i * 0.08}>
-                <div className="border-t border-line pt-5">
-                  <span className="font-mono text-xs uppercase tracking-widest text-amber">0{i + 1} / {b.k}</span>
-                  <p className="mt-3 text-sm leading-relaxed text-text-dim">{b.v}</p>
-                </div>
+
+          {/* Desktop: horizontal timeline */}
+          <ol className="relative mt-16 hidden grid-cols-3 gap-x-10 md:grid">
+            <span aria-hidden className="absolute inset-x-0 top-0 h-px bg-line" />
+            {history.map((b, i) => (
+              <Reveal key={b.k} delay={i * 0.1}>
+                <li className="relative pt-10">
+                  <span aria-hidden className="absolute left-0 top-0 h-3 w-3 -translate-y-1/2 rotate-45 bg-amber" />
+                  <h3 className="font-display text-3xl uppercase leading-none text-text">{b.k}</h3>
+                  <p className="mt-4 max-w-[42ch] text-sm leading-relaxed text-text-dim">{b.v}</p>
+                </li>
               </Reveal>
             ))}
-          </div>
+          </ol>
+
+          {/* Mobile: vertical timeline */}
+          <ol className="relative mt-12 space-y-9 border-l border-line pl-7 md:hidden">
+            {history.map((b) => (
+              <li key={b.k} className="relative">
+                <span aria-hidden className="absolute -left-[33px] top-1 h-2.5 w-2.5 rotate-45 bg-amber" />
+                <h3 className="font-display text-3xl uppercase leading-none text-text">{b.k}</h3>
+                <p className="mt-3 text-sm leading-relaxed text-text-dim">{b.v}</p>
+              </li>
+            ))}
+          </ol>
         </div>
       </section>
 
-      {/* Values */}
+      {/* Values — editorial split list */}
       <section className="mx-auto max-w-7xl px-5 py-20 sm:px-8">
-        <SectionHeading eyebrow="Company values" title={<>What we <span className="text-amber">stand on</span></>} />
-        <div className="mt-10 grid gap-px overflow-hidden border border-line-soft bg-line-soft md:grid-cols-3">
+        <SectionHeading title={<>What we <span className="text-amber">stand on</span></>} />
+        <dl className="mt-12 divide-y divide-line-soft border-t border-line-soft">
           {values.map((v, i) => (
-            <Reveal key={v.title} delay={i * 0.06}>
-              <div className="h-full bg-base p-8">
-                <span className="font-display text-5xl text-amber">0{i + 1}</span>
-                <h3 className="mt-3 font-display text-3xl uppercase leading-none text-text">{v.title}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-text-dim">{v.body}</p>
+            <Reveal key={v.title} delay={i * 0.07}>
+              <div className="grid gap-3 py-8 md:grid-cols-[minmax(0,1fr)_minmax(0,2fr)] md:gap-12">
+                <dt className="font-display text-3xl uppercase leading-none text-amber sm:text-4xl">{v.title}</dt>
+                <dd className="max-w-[62ch] text-base leading-relaxed text-text-dim">{v.body}</dd>
               </div>
             </Reveal>
           ))}
-        </div>
+        </dl>
       </section>
 
       {/* Clients */}
