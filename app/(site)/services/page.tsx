@@ -5,7 +5,7 @@ import { getServices } from "@/lib/content";
 import { Reveal } from "@/components/ui/Reveal";
 
 export const metadata: Metadata = {
-  title: "Services — Contracting, Fuel Systems & Leasing",
+  title: "Services",
   description:
     "Petron's services: general contracting, fuel-system installation, petroleum equipment sales, and commercial leasing.",
 };

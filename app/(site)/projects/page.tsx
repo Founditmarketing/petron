@@ -3,7 +3,7 @@ import { getProjects } from "@/lib/content";
 import { ProjectsExplorer } from "@/components/map/ProjectsExplorer";
 
 export const metadata: Metadata = {
-  title: "Project Map — Building Across the U.S.",
+  title: "Project Map",
   description:
     "An interactive map of Petron's builds nationwide: fuel and service stations, retail centers, and government work. Click any pin for the case study.",
 };

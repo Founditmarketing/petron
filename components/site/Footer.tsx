@@ -6,7 +6,7 @@ export function Footer({ settings }: { settings: SiteSettings }) {
   return (
     <footer className="relative mt-px border-t border-line-soft bg-base-2">
       <div className="hazard-rule" />
-      <div className="relative mx-auto max-w-7xl px-5 py-16 pb-28 sm:px-8 lg:pb-16">
+      <div className="relative mx-auto max-w-7xl px-5 py-16 sm:px-8">
         <div className="grid gap-12 lg:grid-cols-[1.4fr_1fr_1fr]">
           <div>
             <Logo />

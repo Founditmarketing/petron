@@ -34,8 +34,7 @@ export default async function HomePage() {
 
         <div className="relative mx-auto flex w-full max-w-7xl flex-1 flex-col justify-end px-5 pb-10 pt-28 sm:px-8">
           <Reveal>
-            <p className="eyebrow mb-5 flex items-center gap-3">
-              <span className="inline-block h-1.5 w-1.5 animate-pulse rounded-full bg-amber" />
+            <p className="eyebrow mb-5">
               31.31&deg;N 92.44&deg;W · Alexandria, Louisiana
             </p>
           </Reveal>

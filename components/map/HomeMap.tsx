@@ -28,7 +28,7 @@ export function HomeMap({ projects, animate = false }: { projects: Project[]; an
               data-cat={p.category}
               style={animate ? { animationDelay: `${0.4 + i * 0.08}s` } : undefined}
               onClick={() => router.push(`/projects?project=${p.slug}`)}
-              title={`${p.title} — ${p.city}, ${p.state}`}
+              title={`${p.title}, ${p.city}, ${p.state}`}
             >
               <span className="pin-ring" />
               <span className="pin-dot" />

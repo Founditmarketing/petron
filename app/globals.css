@@ -413,14 +413,6 @@ input[type="range"]::-webkit-slider-thumb {
   -webkit-overflow-scrolling: touch;
 }
 
-/* Keep map controls clear of the mobile tab bar */
-@media (max-width: 1023px) {
-  .maplibregl-ctrl-bottom-right,
-  .maplibregl-ctrl-bottom-left {
-    margin-bottom: calc(3.6rem + env(safe-area-inset-bottom, 0px));
-  }
-}
-
 /* Snap carousel helpers */
 .snap-x {
   scroll-snap-type: x mandatory;

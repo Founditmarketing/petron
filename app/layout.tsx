@@ -10,8 +10,8 @@ const plexMono = IBM_Plex_Mono({ variable: "--font-plex-mono", subsets: ["latin"
 export const metadata: Metadata = {
   metadataBase: new URL("https://petron-us.com"),
   title: {
-    default: "Petron LLC — Building on a Firm Foundation",
-    template: "%s — Petron LLC",
+    default: "Petron LLC | Building on a Firm Foundation",
+    template: "%s | Petron LLC",
   },
   description:
     "Petron is a rugged general contractor, fuel-system installer, and commercial real-estate developer building across the U.S. from Alexandria, Louisiana.",
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     "Petron LLC",
   ],
   openGraph: {
-    title: "Petron LLC — Building on a Firm Foundation",
+    title: "Petron LLC | Building on a Firm Foundation",
     description: "General contracting, fuel systems, and commercial real estate. Building across the U.S.",
     type: "website",
   },

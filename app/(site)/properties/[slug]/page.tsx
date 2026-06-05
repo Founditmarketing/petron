@@ -21,7 +21,7 @@ export async function generateMetadata({
   const property = await getProperty(slug);
   if (!property) return { title: "Property not found" };
   return {
-    title: `${property.title} — ${property.city}`,
+    title: `${property.title}, ${property.city}`,
     description: property.description,
   };
 }

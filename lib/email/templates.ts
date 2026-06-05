@@ -47,14 +47,14 @@ function row(label: string, value: string) {
 }
 
 export function internalEmail(d: InquiryData) {
-  const subject = `New inquiry: ${d.source || "Website"}${d.propertyTitle ? ` — ${d.propertyTitle}` : ""}`;
+  const subject = `New inquiry: ${d.source || "Website"}${d.propertyTitle ? `: ${d.propertyTitle}` : ""}`;
   const inner = `
     <h1 style="font-size:22px;color:${TEXT};text-transform:uppercase;margin:28px 0 4px;">New lead received</h1>
     <p style="font-size:13px;color:${MUTED};margin:0 0 20px;">A new inquiry just came in from the website.</p>
     <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
       ${row("Name", esc(d.name))}
       ${row("Email", `<a href="mailto:${esc(d.email)}" style="color:${AMBER};text-decoration:none;">${esc(d.email)}</a>`)}
-      ${row("Phone", esc(d.phone || "—"))}
+      ${row("Phone", esc(d.phone || "Not provided"))}
       ${row("Source", esc(d.source || "Website"))}
       ${d.propertyTitle ? row("Property", esc(d.propertyTitle)) : ""}
       ${row("Received", new Date(d.createdAt).toLocaleString("en-US"))}
@@ -66,7 +66,7 @@ export function internalEmail(d: InquiryData) {
     `New inquiry: ${d.source || "Website"}`,
     `Name: ${d.name}`,
     `Email: ${d.email}`,
-    `Phone: ${d.phone || "—"}`,
+    `Phone: ${d.phone || "Not provided"}`,
     d.propertyTitle ? `Property: ${d.propertyTitle}` : "",
     "",
     d.message,
@@ -77,7 +77,7 @@ export function internalEmail(d: InquiryData) {
 }
 
 export function confirmationEmail(d: Pick<InquiryData, "name" | "propertyTitle">) {
-  const subject = "We received your message — Petron";
+  const subject = "We received your message | Petron";
   const inner = `
     <h1 style="font-size:22px;color:${TEXT};text-transform:uppercase;margin:28px 0 4px;">Thanks, ${esc(firstName(d.name))}.</h1>
     <p style="font-size:14px;color:#c4c9d2;line-height:1.7;margin:0 0 18px;">
@@ -96,7 +96,7 @@ We received your ${d.propertyTitle ? `tour request for ${d.propertyTitle}` : "me
 
 Need something sooner? Call 318-445-5685 (Mon-Fri, 7am-5pm).
 
-Petron, L.L.C. — Building on a firm foundation.`;
+Petron, L.L.C. Building on a firm foundation.`;
   return { subject, html: shell(inner), text };
 }
 

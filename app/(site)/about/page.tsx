@@ -6,7 +6,7 @@ import { Reveal } from "@/components/ui/Reveal";
 import { TenantLogo } from "@/components/site/TenantLogo";
 
 export const metadata: Metadata = {
-  title: "About — A Firm Foundation",
+  title: "About",
   description:
     "Petron is a high-quality general contractor, fuel-system installer, and real-estate developer built on relationships, trust, and no surprises.",
 };
@@ -127,7 +127,7 @@ export default async function AboutPage() {
         <div className="concrete absolute inset-0" />
         <div className="relative mx-auto max-w-7xl px-5 py-20 text-center sm:px-8">
           <h2 className="font-display text-4xl uppercase text-text sm:text-6xl">Come do business with us</h2>
-          <Link href="/contact" className="btn btn-amber mt-8">Get in touch</Link>
+          <Link href="/contact" className="btn btn-amber mt-8">Start a Project</Link>
         </div>
       </section>
     </>

@@ -237,7 +237,7 @@ export function ProjectsExplorer({
                     e.stopPropagation();
                     select(p);
                   }}
-                  title={`${p.title} — ${p.city}, ${p.state}`}
+                  title={`${p.title}, ${p.city}, ${p.state}`}
                 >
                   <span className="pin-ring" />
                   <span className="pin-dot" />
@@ -382,7 +382,7 @@ export function ProjectsExplorer({
                 <Gallery images={active.gallery} alt={active.title} />
 
                 <Link href="/contact" className="btn btn-amber mt-8 w-full justify-center">
-                  Build something like this
+                  Start a Project
                 </Link>
               </div>
             </motion.div>

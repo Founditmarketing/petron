@@ -3,7 +3,7 @@ import { getProperties } from "@/lib/content";
 import { PropertiesBrowser } from "@/components/properties/PropertiesBrowser";
 
 export const metadata: Metadata = {
-  title: "Available Properties — Office, Warehouse & Retail",
+  title: "Available Properties",
   description:
     "Browse Petron's commercial real estate: office suites, warehouses, and retail centers in high-traffic Central Louisiana locations. Filter, map, and schedule a tour.",
 };

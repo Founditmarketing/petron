@@ -1,6 +1,5 @@
 import { Nav } from "@/components/site/Nav";
 import { Footer } from "@/components/site/Footer";
-import { MobileTabBar } from "@/components/site/MobileTabBar";
 import { getSiteSettings } from "@/lib/content";
 
 export default async function SiteLayout({ children }: { children: React.ReactNode }) {
@@ -10,7 +9,6 @@ export default async function SiteLayout({ children }: { children: React.ReactNo
       <Nav settings={settings} />
       <main className="flex-1">{children}</main>
       <Footer settings={settings} />
-      <MobileTabBar />
     </div>
   );
 }

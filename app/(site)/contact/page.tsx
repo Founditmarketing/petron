@@ -4,7 +4,7 @@ import { InquiryForm } from "@/components/forms/InquiryForm";
 import { PropertyMap } from "@/components/map/PropertyMap";
 
 export const metadata: Metadata = {
-  title: "Contact — Come Do Business With Us",
+  title: "Contact",
   description:
     "Call Petron at 318-445-5685 or send a message. Main office, realty, parts, and fuel installation departments in Alexandria, Louisiana.",
 };

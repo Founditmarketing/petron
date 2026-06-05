@@ -63,22 +63,22 @@ export function InquiryForm({
 
       <div className={compact ? "space-y-4" : "grid gap-4 sm:grid-cols-2"}>
         <label className="block">
-          <span className="mb-1.5 block font-mono text-[0.65rem] uppercase tracking-widest text-muted">Name</span>
+          <span className="mb-1.5 block font-mono text-[0.65rem] uppercase tracking-widest text-text-dim">Name</span>
           <input name="name" required className={field} placeholder="Your name" />
         </label>
         <label className="block">
-          <span className="mb-1.5 block font-mono text-[0.65rem] uppercase tracking-widest text-muted">Email</span>
+          <span className="mb-1.5 block font-mono text-[0.65rem] uppercase tracking-widest text-text-dim">Email</span>
           <input name="email" type="email" required className={field} placeholder="you@company.com" />
         </label>
       </div>
 
       <label className="block">
-        <span className="mb-1.5 block font-mono text-[0.65rem] uppercase tracking-widest text-muted">Phone</span>
+        <span className="mb-1.5 block font-mono text-[0.65rem] uppercase tracking-widest text-text-dim">Phone</span>
         <input name="phone" className={field} placeholder="(318) 000-0000" />
       </label>
 
       <label className="block">
-        <span className="mb-1.5 block font-mono text-[0.65rem] uppercase tracking-widest text-muted">Message</span>
+        <span className="mb-1.5 block font-mono text-[0.65rem] uppercase tracking-widest text-text-dim">Message</span>
         <textarea name="message" rows={compact ? 3 : 4} required className={field} defaultValue={defaultMessage} placeholder="Tell us about your project or the space you need." />
       </label>
 
