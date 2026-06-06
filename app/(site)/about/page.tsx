@@ -125,14 +125,18 @@ export default async function AboutPage() {
         </dl>
       </section>
 
-      {/* Clients */}
+      {/* Clients — single trust band */}
       <section className="border-t border-line-soft bg-base-2">
         <div className="mx-auto max-w-7xl px-5 py-16 sm:px-8">
-          <p className="eyebrow mb-8 text-center">Among our clients</p>
-          <div className="mx-auto grid max-w-5xl grid-cols-2 gap-3 sm:grid-cols-4 sm:gap-4">
-            {tenants.map((t) => (
-              <TenantLogo key={t.name} tenant={t} />
-            ))}
+          <p className="mb-8 text-center font-cond text-sm font-semibold uppercase tracking-[0.16em] text-muted">
+            Among our clients
+          </p>
+          <div className="overflow-hidden rounded-md border border-line-soft bg-[oklch(0.93_0.004_250)]">
+            <div className="grid grid-cols-2 divide-x divide-y divide-black/[0.07] sm:grid-cols-4 lg:grid-cols-8 lg:divide-y-0">
+              {tenants.map((t) => (
+                <TenantLogo key={t.name} tenant={t} />
+              ))}
+            </div>
           </div>
         </div>
       </section>

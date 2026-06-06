@@ -51,8 +51,10 @@
 
   --font-display: var(--font-bebas);
   --font-cond: var(--font-archivo);
-  --font-sans: var(--font-inter);
-  --font-mono: var(--font-plex-mono);
+  --font-sans: var(--font-hanken);
+  /* "mono" now resolves to the sturdy condensed grotesque, not a monospace.
+     Labels/eyebrows/specs read as a builder's stamp, not a dev dashboard. */
+  --font-mono: var(--font-archivo);
 
   --ease-out-quint: cubic-bezier(0.22, 1, 0.36, 1);
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
@@ -90,13 +92,14 @@ body {
   font-family: var(--font-cond), sans-serif;
 }
 .font-mono {
-  font-family: var(--font-mono), ui-monospace, monospace;
+  font-family: var(--font-mono), sans-serif;
 }
 
 .eyebrow {
-  font-family: var(--font-mono), monospace;
-  font-size: 0.72rem;
-  letter-spacing: 0.28em;
+  font-family: var(--font-cond), sans-serif;
+  font-weight: 700;
+  font-size: 0.78rem;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--amber);
 }
@@ -167,9 +170,10 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
-  font-family: var(--font-mono), monospace;
-  font-size: 0.68rem;
-  letter-spacing: 0.16em;
+  font-family: var(--font-cond), sans-serif;
+  font-weight: 600;
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   padding: 0.28rem 0.6rem;
   border: 1px solid var(--line);

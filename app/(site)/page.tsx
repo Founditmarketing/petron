@@ -51,7 +51,7 @@ export default async function HomePage() {
         <div className="relative mx-auto flex w-full max-w-7xl flex-1 flex-col justify-end px-5 pb-10 pt-28 sm:px-8">
           <Reveal>
             <p className="eyebrow mb-5">
-              31.31&deg;N 92.44&deg;W · Alexandria, Louisiana
+              General Contractor · Alexandria, Louisiana
             </p>
           </Reveal>
           <Reveal delay={0.08}>
@@ -62,14 +62,15 @@ export default async function HomePage() {
           </Reveal>
           <Reveal delay={0.16}>
             <p className="mt-6 max-w-xl text-base leading-relaxed text-text-dim sm:text-lg">
-              General contracting, fuel-system installation, and commercial real estate. We build
-              gas stations, retail centers, and government projects across the U.S. with no surprises.
+              For four decades we have poured the foundations, set the tanks, and raised the steel
+              behind gas stations, retail centers, and government projects across the country. Built
+              to outlast the lease.
             </p>
           </Reveal>
           <Reveal delay={0.24}>
             <div className="mt-8 flex flex-wrap gap-3">
-              <Link href="/projects" className="btn btn-amber">Explore the Project Map</Link>
-              <Link href="/properties" className="btn btn-ghost">View Available Properties</Link>
+              <Link href="/projects" className="btn btn-amber">View Our Work</Link>
+              <Link href="/properties" className="btn btn-ghost">Available Properties</Link>
             </div>
           </Reveal>
 
@@ -78,14 +79,14 @@ export default async function HomePage() {
             <div className="mt-12 grid max-w-2xl grid-cols-3 divide-x divide-line border-t border-line pt-5">
               {[
                 { to: states, suffix: "+", label: "States built in" },
-                { to: projects.length, suffix: "+", label: "Tracked projects" },
-                { to: 7, suffix: "", label: "Strip centers" },
+                { to: projects.length, suffix: "+", label: "Completed builds" },
+                { to: 40, suffix: "+", label: "Years in business" },
               ].map((s) => (
                 <div key={s.label} className="px-4 first:pl-0">
                   <div className="font-display text-4xl text-amber sm:text-5xl">
                     <CountUp to={s.to} suffix={s.suffix} />
                   </div>
-                  <div className="mt-1 font-mono text-[0.62rem] uppercase tracking-widest text-muted">{s.label}</div>
+                  <div className="mt-1 font-cond text-[0.66rem] font-semibold uppercase tracking-[0.14em] text-muted">{s.label}</div>
                 </div>
               ))}
             </div>
@@ -122,23 +123,23 @@ export default async function HomePage() {
           <div className="relative mt-10 h-[56vh] min-h-[420px] overflow-hidden border border-line bg-base">
             <HomeMap projects={projects} animate />
             <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-base/60 via-transparent to-transparent" />
-            {/* functional legend */}
-            <div className="pointer-events-none absolute bottom-4 left-4 flex flex-wrap items-center gap-x-5 gap-y-2 border border-line bg-base/85 px-4 py-2.5 backdrop-blur-sm">
+            {/* quiet legend */}
+            <div className="pointer-events-none absolute bottom-4 left-4 flex flex-wrap items-center gap-x-5 gap-y-1.5">
               {mapLegend.map((l) => (
-                <span key={l.cat} className="flex items-center gap-2 font-mono text-[0.62rem] uppercase tracking-widest text-text-dim">
-                  <span className="h-2 w-2 rounded-full" style={{ background: l.color }} />
+                <span key={l.cat} className="flex items-center gap-2 font-cond text-[0.66rem] font-semibold uppercase tracking-[0.12em] text-text-dim">
+                  <span className="h-1.5 w-1.5 rounded-full" style={{ background: l.color }} />
                   {l.label}
                 </span>
               ))}
             </div>
-            <span className="pointer-events-none absolute right-4 top-4 font-mono text-[0.6rem] uppercase tracking-widest text-muted">
-              {projects.length} builds tracked
+            <span className="pointer-events-none absolute right-4 top-4 font-cond text-[0.66rem] font-semibold uppercase tracking-[0.12em] text-muted">
+              {projects.length} completed builds
             </span>
           </div>
 
           <div className="mt-8 flex flex-wrap gap-3">
-            <Link href="/projects" className="btn btn-amber">Open the live map</Link>
-            <Link href={`/projects?project=${spotlight.slug}`} className="btn btn-ghost">See a case study</Link>
+            <Link href="/projects" className="btn btn-amber">Explore Our Work</Link>
+            <Link href={`/projects?project=${spotlight.slug}`} className="btn btn-ghost">View a Project</Link>
           </div>
         </div>
       </section>
@@ -146,7 +147,7 @@ export default async function HomePage() {
       {/* SERVICES — photographic, asymmetric */}
       <section className="border-t border-line-soft">
         <div className="mx-auto max-w-7xl px-5 py-16 sm:px-8 sm:py-24">
-          <SectionHeading eyebrow="What we do" title={<>A little bit of <span className="text-amber">everything</span></>} />
+          <SectionHeading eyebrow="What we build" title={<>Specialists <span className="text-amber">across the build</span></>} />
           <div className="mt-12 grid gap-4">
             <Reveal>
               <Link
@@ -218,20 +219,24 @@ export default async function HomePage() {
               </div>
             ))}
           </div>
-          <p className="mt-4 text-center font-mono text-[0.62rem] uppercase tracking-widest text-muted sm:hidden">
+          <p className="mt-4 text-center font-cond text-[0.66rem] font-semibold uppercase tracking-[0.14em] text-muted sm:hidden">
             Swipe for more →
           </p>
         </div>
       </section>
 
-      {/* CLIENTS */}
+      {/* CLIENTS — single trust band */}
       <section className="border-t border-line-soft">
         <div className="mx-auto max-w-7xl px-5 py-20 sm:px-8">
-          <p className="eyebrow mb-8 text-center">Trusted by national names</p>
-          <div className="mx-auto grid max-w-5xl grid-cols-2 gap-3 sm:grid-cols-4 sm:gap-4">
-            {tenants.map((t) => (
-              <TenantLogo key={t.name} tenant={t} />
-            ))}
+          <p className="mb-8 text-center font-cond text-sm font-semibold uppercase tracking-[0.16em] text-muted">
+            Builders for the names you know
+          </p>
+          <div className="overflow-hidden rounded-md border border-line-soft bg-[oklch(0.93_0.004_250)]">
+            <div className="grid grid-cols-2 divide-x divide-y divide-black/[0.07] sm:grid-cols-4 lg:grid-cols-8 lg:divide-y-0">
+              {tenants.map((t) => (
+                <TenantLogo key={t.name} tenant={t} />
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -250,7 +255,7 @@ export default async function HomePage() {
         <div className="concrete absolute inset-0" />
         <div className="hazard-rule absolute inset-x-0 top-0" />
         <div className="relative mx-auto max-w-7xl px-5 py-24 text-center sm:px-8 sm:py-36">
-          <p className="eyebrow mb-5">No surprises. Ever.</p>
+          <p className="eyebrow mb-5">Ready to break ground</p>
           <h2 className="mx-auto max-w-4xl font-display text-6xl uppercase leading-[0.88] text-text sm:text-8xl">
             Let&apos;s build something <span className="text-amber">that lasts</span>
           </h2>

@@ -1,11 +1,10 @@
 import type { Metadata } from "next";
-import { Bebas_Neue, Archivo, Inter, IBM_Plex_Mono } from "next/font/google";
+import { Bebas_Neue, Archivo, Hanken_Grotesk } from "next/font/google";
 import "./globals.css";
 
 const bebas = Bebas_Neue({ variable: "--font-bebas", subsets: ["latin"], weight: "400" });
 const archivo = Archivo({ variable: "--font-archivo", subsets: ["latin"], weight: ["500", "600", "700", "800"] });
-const inter = Inter({ variable: "--font-inter", subsets: ["latin"] });
-const plexMono = IBM_Plex_Mono({ variable: "--font-plex-mono", subsets: ["latin"], weight: ["400", "500", "600"] });
+const hanken = Hanken_Grotesk({ variable: "--font-hanken", subsets: ["latin"], weight: ["400", "500", "600", "700"] });
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://petron-us.com"),
@@ -34,7 +33,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     <html
       lang="en"
       data-scroll-behavior="smooth"
-      className={`${bebas.variable} ${archivo.variable} ${inter.variable} ${plexMono.variable}`}
+      className={`${bebas.variable} ${archivo.variable} ${hanken.variable}`}
     >
       <body className="min-h-dvh bg-base text-text">{children}</body>
     </html>
