@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import Map, { Marker } from "react-map-gl/maplibre";
 import "maplibre-gl/dist/maplibre-gl.css";
@@ -8,8 +9,28 @@ import type { Project } from "@/lib/types";
 
 export function HomeMap({ projects, animate = false }: { projects: Project[]; animate?: boolean }) {
   const router = useRouter();
+  const wrapRef = useRef<HTMLDivElement>(null);
+  // When `animate`, hold the pins hidden until the map scrolls into view, then
+  // drop them in sequence so the map appears to build itself.
+  const [shown, setShown] = useState(!animate);
+
+  useEffect(() => {
+    if (!animate || !wrapRef.current) return;
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setShown(true);
+          io.disconnect();
+        }
+      },
+      { threshold: 0.3 }
+    );
+    io.observe(wrapRef.current);
+    return () => io.disconnect();
+  }, [animate]);
+
   return (
-    <div className="absolute inset-0">
+    <div ref={wrapRef} className="absolute inset-0">
       <Map
         initialViewState={{ ...US_VIEW, zoom: 3.9 }}
         mapStyle={DARK_STYLE}
@@ -24,9 +45,9 @@ export function HomeMap({ projects, animate = false }: { projects: Project[]; an
         {projects.map((p, i) => (
           <Marker key={p._id} longitude={p.location.lng} latitude={p.location.lat} anchor="center">
             <div
-              className={`pin ${animate ? "pin-drop" : ""}`}
+              className={`pin ${animate && !shown ? "opacity-0" : ""} ${animate && shown ? "pin-drop" : ""}`}
               data-cat={p.category}
-              style={animate ? { animationDelay: `${0.4 + i * 0.08}s` } : undefined}
+              style={animate && shown ? { animationDelay: `${i * 0.07}s` } : undefined}
               onClick={() => router.push(`/projects?project=${p.slug}`)}
               title={`${p.title}, ${p.city}, ${p.state}`}
             >

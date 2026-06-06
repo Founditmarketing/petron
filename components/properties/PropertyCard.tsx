@@ -49,7 +49,8 @@ export function PropertyCard({
       </div>
       <div className="p-5">
         <div className="flex items-start justify-between gap-3">
-          <h3 className="font-display text-2xl uppercase leading-none text-text">{property.title}</h3>
+          <h3 className="font-display text-2xl uppercase leading-none text-text transition-colors duration-300 group-hover:text-amber">{property.title}</h3>
+          <span className="font-display text-2xl leading-none text-line transition-all duration-300 group-hover:translate-x-1 group-hover:text-amber" aria-hidden>→</span>
         </div>
         <p className="mt-1.5 font-mono text-[0.7rem] uppercase tracking-wider text-muted">{property.city}</p>
         <div className="mt-4 flex items-center justify-between border-t border-line-soft pt-3">

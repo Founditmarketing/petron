@@ -1,12 +1,41 @@
 "use client";
 
-import { ReactNode, useRef } from "react";
+import { ReactNode, useEffect, useRef } from "react";
 import {
   motion,
   useMotionValue,
+  useScroll,
   useSpring,
   useReducedMotion,
 } from "framer-motion";
+
+/** Thin amber rule at the very top that tracks scroll progress. */
+export function ScrollProgress() {
+  const { scrollYProgress } = useScroll();
+  const scaleX = useSpring(scrollYProgress, { stiffness: 140, damping: 30, mass: 0.3 });
+  return (
+    <motion.div
+      aria-hidden
+      style={{ scaleX }}
+      className="fixed inset-x-0 top-0 z-[60] h-[2px] origin-left bg-amber"
+    />
+  );
+}
+
+/** A quiet signature for anyone who opens the console. */
+export function ConsoleSignature() {
+  useEffect(() => {
+    console.log(
+      "%cPETRON",
+      "color:#f0a020;font:700 22px/1 sans-serif;letter-spacing:2px"
+    );
+    console.log(
+      "%cBuilding on a firm foundation. Looking for the crew that builds things that last? info@petron-us.com",
+      "color:#9aa0ab;font:13px sans-serif"
+    );
+  }, []);
+  return null;
+}
 
 /** Masked line that rises into view from below its own clip box. Cinematic
  *  title-sequence reveal for big display headlines. Reduced-motion: plain fade. */

@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { ReactNode } from "react";
 import { Reveal } from "@/components/ui/Reveal";
+import { MaskReveal, DrawRule } from "@/components/ui/Kinetic";
 
 /** Cinematic full-bleed page hero with a slow Ken Burns zoom.
  *  `compact` keeps the band short so utility tools (browsers, maps) stay near the top. */
@@ -39,23 +40,28 @@ export function PageHero({
           compact ? "pb-10 pt-32" : "pb-14 pt-36 sm:pt-44"
         }`}
       >
-        <Reveal>
-          {eyebrow && <p className="eyebrow mb-4">{eyebrow}</p>}
-          <h1
-            className={`font-display uppercase leading-[0.85] text-text ${
-              compact
-                ? "text-5xl sm:text-7xl"
-                : "text-[clamp(2.9rem,9vw,7.5rem)]"
-            }`}
-          >
-            {title}
-          </h1>
-          {children && (
+        {eyebrow && (
+          <div className="mb-4 flex items-center gap-4">
+            <Reveal>
+              <p className="eyebrow">{eyebrow}</p>
+            </Reveal>
+            <DrawRule delay={0.25} className="hidden w-16 sm:block" />
+          </div>
+        )}
+        <h1
+          className={`font-display uppercase leading-[0.85] text-text ${
+            compact ? "text-5xl sm:text-7xl" : "text-[clamp(2.9rem,9vw,7.5rem)]"
+          }`}
+        >
+          <MaskReveal delay={0.08}>{title}</MaskReveal>
+        </h1>
+        {children && (
+          <Reveal delay={0.32}>
             <div className="mt-5 max-w-2xl text-base leading-relaxed text-text-dim sm:text-lg">
               {children}
             </div>
-          )}
-        </Reveal>
+          </Reveal>
+        )}
       </div>
     </section>
   );
