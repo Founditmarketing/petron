@@ -31,8 +31,8 @@ export function PageHero({
           <Image src={image} alt={alt} fill priority sizes="100vw" className="object-cover" />
         </div>
       </div>
-      <div className="absolute inset-0 bg-gradient-to-t from-base via-base/65 to-base/30" />
-      <div className="absolute inset-0 bg-gradient-to-r from-base/90 via-base/25 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-t from-base via-base/50 to-base/15" />
+      <div className="absolute inset-0 bg-gradient-to-r from-base/80 via-base/20 to-transparent" />
       <div className="bp-grid absolute inset-0 opacity-40" />
 
       <div

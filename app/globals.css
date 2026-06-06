@@ -7,12 +7,12 @@
 */
 
 :root {
-  --base: oklch(0.16 0.012 250);
-  --base-2: oklch(0.19 0.012 250);
-  --surface: oklch(0.22 0.012 250);
-  --surface-2: oklch(0.26 0.013 250);
-  --line: oklch(0.33 0.012 250);
-  --line-soft: oklch(0.28 0.012 250);
+  --base: oklch(0.185 0.012 250);
+  --base-2: oklch(0.215 0.012 250);
+  --surface: oklch(0.245 0.013 250);
+  --surface-2: oklch(0.285 0.013 250);
+  --line: oklch(0.35 0.012 250);
+  --line-soft: oklch(0.3 0.012 250);
 
   --text: oklch(0.94 0.008 250);
   --text-dim: oklch(0.78 0.012 250);
@@ -209,7 +209,7 @@ body {
   inset: 3px;
   border-radius: 50%;
   background: var(--amber);
-  box-shadow: 0 0 0 2px oklch(0.16 0.012 250), 0 0 12px 2px var(--amber);
+  box-shadow: 0 0 0 2px var(--base), 0 0 12px 2px var(--amber);
   transition: transform 0.3s var(--ease-out-quint);
 }
 .pin:hover .pin-dot {
@@ -222,9 +222,9 @@ body {
   border: 1.5px solid var(--amber);
   animation: pulse 2.6s var(--ease-out-expo) infinite;
 }
-.pin[data-cat="retail"] .pin-dot { background: var(--blueprint); box-shadow: 0 0 0 2px oklch(0.16 0.012 250), 0 0 12px 2px var(--blueprint); }
+.pin[data-cat="retail"] .pin-dot { background: var(--blueprint); box-shadow: 0 0 0 2px var(--base), 0 0 12px 2px var(--blueprint); }
 .pin[data-cat="retail"] .pin-ring { border-color: var(--blueprint); }
-.pin[data-cat="government"] .pin-dot { background: var(--ok); box-shadow: 0 0 0 2px oklch(0.16 0.012 250), 0 0 12px 2px var(--ok); }
+.pin[data-cat="government"] .pin-dot { background: var(--ok); box-shadow: 0 0 0 2px var(--base), 0 0 12px 2px var(--ok); }
 .pin[data-cat="government"] .pin-ring { border-color: var(--ok); }
 .pin[data-active="true"] .pin-dot { transform: scale(1.5); }
 

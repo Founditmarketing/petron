@@ -65,8 +65,8 @@ export default async function HomePage() {
             />
           </div>
         </div>
-        <div className="absolute inset-0 bg-gradient-to-t from-base via-base/55 to-base/25" />
-        <div className="absolute inset-0 bg-gradient-to-r from-base/90 via-base/25 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-base via-base/45 to-base/10" />
+        <div className="absolute inset-0 bg-gradient-to-r from-base/75 via-base/15 to-transparent" />
         <div className="bp-grid absolute inset-0 opacity-40" />
 
         <div className="relative mx-auto flex w-full max-w-7xl flex-1 flex-col justify-end px-5 pb-10 pt-28 sm:px-8">
@@ -181,10 +181,10 @@ export default async function HomePage() {
                   alt={leadService.title}
                   fill
                   sizes="(max-width: 1024px) 100vw, 1200px"
-                  className="object-cover opacity-45 transition-[opacity,transform] duration-[1200ms] ease-out group-hover:scale-[1.04] group-hover:opacity-55"
+                  className="object-cover opacity-60 transition-[opacity,transform] duration-[1200ms] ease-out group-hover:scale-[1.04] group-hover:opacity-75"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-base via-base/75 to-base/15" />
-                <div className="absolute inset-0 bg-gradient-to-r from-base/70 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-base via-base/55 to-base/10" />
+                <div className="absolute inset-0 bg-gradient-to-r from-base/65 to-transparent" />
                 <div className="relative max-w-2xl">
                   <p className="font-mono text-xs uppercase tracking-widest text-amber">{leadService.tagline}</p>
                   <h3 className="mt-2 font-display text-5xl uppercase leading-[0.9] text-text sm:text-7xl">{leadService.title}</h3>
@@ -208,9 +208,9 @@ export default async function HomePage() {
                       alt={s.title}
                       fill
                       sizes="(max-width: 640px) 100vw, 33vw"
-                      className="object-cover opacity-35 transition-[opacity,transform] duration-[1200ms] ease-out group-hover:scale-[1.05] group-hover:opacity-50"
+                      className="object-cover opacity-55 transition-[opacity,transform] duration-[1200ms] ease-out group-hover:scale-[1.05] group-hover:opacity-70"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-base via-base/80 to-base/20" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-base via-base/60 to-base/15" />
                     <div className="relative">
                       <p className="font-mono text-[0.68rem] uppercase tracking-widest text-amber">{s.tagline}</p>
                       <h3 className="mt-2 font-display text-3xl uppercase leading-none text-text">{s.title}</h3>
@@ -271,9 +271,9 @@ export default async function HomePage() {
           aria-hidden
           fill
           sizes="100vw"
-          className="object-cover opacity-30"
+          className="object-cover opacity-40"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-base via-base/85 to-base/55" />
+        <div className="absolute inset-0 bg-gradient-to-t from-base via-base/75 to-base/45" />
         <div className="concrete absolute inset-0" />
         <div className="hazard-rule absolute inset-x-0 top-0" />
         <div className="relative mx-auto max-w-7xl px-5 py-24 text-center sm:px-8 sm:py-36">
