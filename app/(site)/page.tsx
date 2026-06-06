@@ -3,6 +3,7 @@ import Image from "next/image";
 import { getProjects, getProperties, getServices, getTenants } from "@/lib/content";
 import { HomeMap } from "@/components/map/HomeMap";
 import { PropertyCard } from "@/components/properties/PropertyCard";
+import { LeaseEstimator, type RateInfo } from "@/components/properties/LeaseEstimator";
 import { SectionHeading } from "@/components/ui/Section";
 import { Reveal } from "@/components/ui/Reveal";
 import { CountUp } from "@/components/ui/CountUp";
@@ -28,6 +29,25 @@ export default async function HomePage() {
   const ticker = [...projects, ...projects];
   const spotlight = projects.find((p) => p.featured) ?? projects[0];
   const [leadService, ...restServices] = services;
+
+  const typeLabels = { office: "Office", warehouse: "Warehouse", retail: "Retail" } as const;
+  const parseRate = (s: string): [number, number] | null => {
+    const nums = (s.match(/\d+(?:\.\d+)?/g) || []).map(Number);
+    return nums.length ? [nums[0], nums[1] ?? nums[0]] : null;
+  };
+  const rateInfos: RateInfo[] = (["retail", "office", "warehouse"] as const)
+    .map((type) => {
+      const ps = properties.filter((p) => p.type === type && p.available);
+      const ranges = ps.map((p) => parseRate(p.leaseRate)).filter(Boolean) as [number, number][];
+      return {
+        type,
+        label: typeLabels[type],
+        min: ranges.length ? Math.min(...ranges.map((r) => r[0])) : 0,
+        max: ranges.length ? Math.max(...ranges.map((r) => r[1])) : 0,
+        count: ps.length,
+      };
+    })
+    .filter((r) => r.count > 0);
 
   return (
     <>
@@ -227,8 +247,21 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* CLIENTS — single trust band */}
+      {/* LEASE ESTIMATOR — interactive lead-gen */}
       <section className="border-t border-line-soft">
+        <div className="mx-auto max-w-7xl px-5 py-16 sm:px-8 sm:py-24">
+          <SectionHeading
+            eyebrow="Plan your space"
+            title={<>What will it <span className="text-amber">cost to lease?</span></>}
+          />
+          <div className="mt-12">
+            <LeaseEstimator rates={rateInfos} />
+          </div>
+        </div>
+      </section>
+
+      {/* CLIENTS — single trust band */}
+      <section className="border-t border-line-soft bg-base-2">
         <div className="mx-auto max-w-7xl px-5 py-20 sm:px-8">
           <p className="mb-8 text-center font-cond text-sm font-semibold uppercase tracking-[0.16em] text-muted">
             Builders for the names you know
