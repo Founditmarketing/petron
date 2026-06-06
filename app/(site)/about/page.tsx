@@ -3,7 +3,7 @@ import Link from "next/link";
 import { getTenants } from "@/lib/content";
 import { SectionHeading, Stat } from "@/components/ui/Section";
 import { Reveal } from "@/components/ui/Reveal";
-import { TenantLogo } from "@/components/site/TenantLogo";
+import { ClientTrustBar } from "@/components/site/ClientTrustBar";
 import { PageHero } from "@/components/site/PageHero";
 
 export const metadata: Metadata = {
@@ -125,21 +125,8 @@ export default async function AboutPage() {
         </dl>
       </section>
 
-      {/* Clients — single trust band */}
-      <section className="border-t border-line-soft bg-base-2">
-        <div className="mx-auto max-w-7xl px-5 py-16 sm:px-8">
-          <p className="mb-8 text-center font-cond text-sm font-semibold uppercase tracking-[0.16em] text-muted">
-            Among our clients
-          </p>
-          <div className="overflow-hidden rounded-md border border-line-soft bg-[oklch(0.93_0.004_250)]">
-            <div className="grid grid-cols-2 divide-x divide-y divide-black/[0.07] sm:grid-cols-4 lg:grid-cols-8 lg:divide-y-0">
-              {tenants.map((t) => (
-                <TenantLogo key={t.name} tenant={t} />
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* Clients — trust band */}
+      <ClientTrustBar tenants={tenants} heading="Among our clients" />
 
       <section className="relative overflow-hidden border-t border-line-soft">
         <div className="concrete absolute inset-0" />

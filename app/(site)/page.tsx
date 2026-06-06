@@ -8,7 +8,7 @@ import { SectionHeading } from "@/components/ui/Section";
 import { Reveal } from "@/components/ui/Reveal";
 import { CountUp } from "@/components/ui/CountUp";
 import { MaskReveal, DrawRule, Magnetic } from "@/components/ui/Kinetic";
-import { TenantLogo } from "@/components/site/TenantLogo";
+import { ClientTrustBar } from "@/components/site/ClientTrustBar";
 
 const mapLegend = [
   { cat: "fuel", label: "Fuel & service", color: "var(--amber)" },
@@ -260,21 +260,8 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* CLIENTS — single trust band */}
-      <section className="border-t border-line-soft bg-base-2">
-        <div className="mx-auto max-w-7xl px-5 py-20 sm:px-8">
-          <p className="mb-8 text-center font-cond text-sm font-semibold uppercase tracking-[0.16em] text-muted">
-            Builders for the names you know
-          </p>
-          <div className="overflow-hidden rounded-md border border-line-soft bg-[oklch(0.93_0.004_250)]">
-            <div className="grid grid-cols-2 divide-x divide-y divide-black/[0.07] sm:grid-cols-4 lg:grid-cols-8 lg:divide-y-0">
-              {tenants.map((t) => (
-                <TenantLogo key={t.name} tenant={t} />
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* CLIENTS — trust band */}
+      <ClientTrustBar tenants={tenants} heading="Builders for the names you know" />
 
       {/* CTA — full-bleed cinematic */}
       <section className="relative overflow-hidden border-t border-line">
