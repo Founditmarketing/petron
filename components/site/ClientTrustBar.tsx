@@ -24,12 +24,15 @@ export function ClientTrustBar({
           {heading}
         </p>
 
-        <div className="mx-auto max-w-5xl rounded-xl bg-white px-6 py-9 shadow-[0_28px_80px_-28px_rgba(0,0,0,0.75)] ring-1 ring-black/[0.06] sm:px-12 sm:py-11">
-          <div className="grid grid-cols-2 items-center gap-x-8 gap-y-10 sm:grid-cols-3 lg:grid-cols-6">
-            {withLogos.map((t) => (
-              <TenantLogo key={t.name} tenant={t} />
-            ))}
-          </div>
+        <div className="mx-auto grid max-w-4xl grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4 lg:grid-cols-6">
+          {withLogos.map((t) => (
+            <div
+              key={t.name}
+              className="flex h-[72px] items-center justify-center rounded-md bg-white px-4 shadow-[0_14px_34px_-16px_rgba(0,0,0,0.85)] ring-1 ring-white/10"
+            >
+              <TenantLogo tenant={t} />
+            </div>
+          ))}
         </div>
 
         {wordmarks.length > 0 && (
