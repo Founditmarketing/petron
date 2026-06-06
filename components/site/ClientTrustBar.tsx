@@ -24,11 +24,11 @@ export function ClientTrustBar({
           {heading}
         </p>
 
-        <div className="mx-auto grid max-w-4xl grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4 lg:grid-cols-6">
+        <div className="mx-auto grid max-w-5xl grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4 lg:grid-cols-6">
           {withLogos.map((t) => (
             <div
               key={t.name}
-              className="flex h-[72px] items-center justify-center rounded-md bg-white px-4 shadow-[0_14px_34px_-16px_rgba(0,0,0,0.85)] ring-1 ring-white/10"
+              className="flex h-[84px] items-center justify-center rounded-lg bg-white/[0.03] px-4 ring-1 ring-white/[0.06] transition-colors duration-300 hover:bg-white/[0.06]"
             >
               <TenantLogo tenant={t} />
             </div>

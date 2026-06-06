@@ -18,7 +18,7 @@ export function TenantLogo({ tenant }: { tenant: Tenant }) {
       alt={`${tenant.name} logo`}
       loading="lazy"
       onError={() => setFailed(true)}
-      className="max-h-9 w-auto max-w-[120px] object-contain transition-transform duration-300 hover:scale-[1.05]"
+        className="max-h-12 w-auto max-w-[128px] object-contain transition-transform duration-300 hover:scale-[1.05]"
     />
   );
 }
