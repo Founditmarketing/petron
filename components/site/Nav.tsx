@@ -43,6 +43,7 @@ export function Nav({ settings }: { settings: SiteSettings }) {
   }, [open]);
 
   return (
+    <>
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-colors duration-300 ${
         scrolled || open
@@ -94,11 +95,12 @@ export function Nav({ settings }: { settings: SiteSettings }) {
           </button>
         </div>
       </div>
+      </header>
 
       <AnimatePresence>
         {open && (
           <motion.nav
-            className="fixed inset-0 top-16 z-40 flex flex-col bg-base md:hidden"
+            className="fixed inset-x-0 bottom-0 top-16 z-40 flex flex-col bg-base md:hidden"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -144,6 +146,6 @@ export function Nav({ settings }: { settings: SiteSettings }) {
           </motion.nav>
         )}
       </AnimatePresence>
-    </header>
+    </>
   );
 }
