@@ -9,6 +9,7 @@ export default async function SiteLayout({ children }: { children: React.ReactNo
       <Nav settings={settings} />
       <main className="flex-1">{children}</main>
       <Footer settings={settings} />
+      <div className="grain" aria-hidden />
     </div>
   );
 }

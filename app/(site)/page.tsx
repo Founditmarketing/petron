@@ -6,6 +6,7 @@ import { PropertyCard } from "@/components/properties/PropertyCard";
 import { SectionHeading } from "@/components/ui/Section";
 import { Reveal } from "@/components/ui/Reveal";
 import { CountUp } from "@/components/ui/CountUp";
+import { MaskReveal, DrawRule, Magnetic } from "@/components/ui/Kinetic";
 import { TenantLogo } from "@/components/site/TenantLogo";
 
 const mapLegend = [
@@ -49,27 +50,28 @@ export default async function HomePage() {
         <div className="bp-grid absolute inset-0 opacity-40" />
 
         <div className="relative mx-auto flex w-full max-w-7xl flex-1 flex-col justify-end px-5 pb-10 pt-28 sm:px-8">
-          <Reveal>
-            <p className="eyebrow mb-5">
-              General Contractor · Alexandria, Louisiana
-            </p>
-          </Reveal>
-          <Reveal delay={0.08}>
-            <h1 className="font-display text-[clamp(3.2rem,13vw,11rem)] uppercase leading-[0.8] text-text">
-              Building on a<br />
-              <span className="text-amber">firm foundation</span>
-            </h1>
-          </Reveal>
-          <Reveal delay={0.16}>
+          <div className="mb-5 flex items-center gap-4">
+            <Reveal>
+              <p className="eyebrow">General Contractor · Alexandria, Louisiana</p>
+            </Reveal>
+            <DrawRule delay={0.25} className="hidden w-24 sm:block" />
+          </div>
+          <h1 className="font-display text-[clamp(3.2rem,13vw,11rem)] uppercase leading-[0.85] text-text">
+            <MaskReveal delay={0.1}>Building on a</MaskReveal>
+            <MaskReveal delay={0.24} className="text-amber">firm foundation</MaskReveal>
+          </h1>
+          <Reveal delay={0.55}>
             <p className="mt-6 max-w-xl text-base leading-relaxed text-text-dim sm:text-lg">
               For four decades we have poured the foundations, set the tanks, and raised the steel
               behind gas stations, retail centers, and government projects across the country. Built
               to outlast the lease.
             </p>
           </Reveal>
-          <Reveal delay={0.24}>
+          <Reveal delay={0.65}>
             <div className="mt-8 flex flex-wrap gap-3">
-              <Link href="/projects" className="btn btn-amber">View Our Work</Link>
+              <Magnetic>
+                <Link href="/projects" className="btn btn-amber">View Our Work</Link>
+              </Magnetic>
               <Link href="/properties" className="btn btn-ghost">Available Properties</Link>
             </div>
           </Reveal>
@@ -263,7 +265,9 @@ export default async function HomePage() {
             Whether it&apos;s a piece of property to lease or a project to talk shop about, pick up the phone.
           </p>
           <div className="mt-9 flex flex-wrap justify-center gap-3">
-            <Link href="/contact" className="btn btn-amber">Start a Project</Link>
+            <Magnetic>
+              <Link href="/contact" className="btn btn-amber">Start a Project</Link>
+            </Magnetic>
             <a href="tel:3184455685" className="btn btn-ghost">Call 318-445-5685</a>
           </div>
         </div>
