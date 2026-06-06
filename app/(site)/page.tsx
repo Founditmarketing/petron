@@ -255,7 +255,7 @@ export default async function HomePage() {
             title={<>What will it <span className="text-amber">cost to lease?</span></>}
           />
           <div className="mt-12">
-            <LeaseEstimator rates={rateInfos} />
+            <LeaseEstimator rates={rateInfos} properties={properties.filter((p) => p.available)} />
           </div>
         </div>
       </section>

@@ -3,6 +3,8 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useSpring, useReducedMotion } from "framer-motion";
+import type { Property } from "@/lib/types";
+import { PropertyCard } from "./PropertyCard";
 
 export type RateInfo = {
   type: "office" | "warehouse" | "retail";
@@ -35,7 +37,13 @@ const MIN_SQFT = 1000;
 const MAX_SQFT = 60000;
 const PRESETS = [2500, 5000, 10000, 25000];
 
-export function LeaseEstimator({ rates }: { rates: RateInfo[] }) {
+export function LeaseEstimator({
+  rates,
+  properties,
+}: {
+  rates: RateInfo[];
+  properties: Property[];
+}) {
   // Default to the type with the most available space.
   const defaultIndex = rates.reduce(
     (best, r, i, arr) => (r.count > arr[best].count ? i : best),
@@ -49,6 +57,10 @@ export function LeaseEstimator({ rates }: { rates: RateInfo[] }) {
   const monthlyHigh = Math.round((sqft * rate.max) / 12);
   const annualLow = sqft * rate.min;
   const annualHigh = sqft * rate.max;
+
+  const matches = properties
+    .filter((p) => p.type === rate.type && p.available)
+    .sort((a, b) => b.sqft - a.sqft);
 
   return (
     <div className="grid gap-px overflow-hidden border border-line-soft bg-line-soft lg:grid-cols-2">
@@ -144,12 +156,32 @@ export function LeaseEstimator({ rates }: { rates: RateInfo[] }) {
         </div>
 
         <div className="relative mt-8 flex flex-wrap gap-3">
-          <Link href="/properties" className="btn btn-amber">
-            Browse Spaces
-          </Link>
-          <Link href="/contact" className="btn btn-ghost">
+          <Link href="/contact" className="btn btn-amber">
             Schedule a Tour
           </Link>
+          <Link href="/properties" className="btn btn-ghost">
+            Browse All Spaces
+          </Link>
+        </div>
+      </div>
+
+      {/* Matching available spaces */}
+      <div className="bg-base-2 p-7 sm:p-10 lg:col-span-2">
+        <div className="flex flex-wrap items-baseline justify-between gap-3">
+          <span className="font-cond text-xs font-semibold uppercase tracking-[0.16em] text-muted">
+            Available {rate.label.toLowerCase()} spaces
+          </span>
+          <Link
+            href="/properties"
+            className="font-cond text-xs font-semibold uppercase tracking-[0.16em] text-text-dim transition-colors hover:text-amber"
+          >
+            View all {rate.count} &rarr;
+          </Link>
+        </div>
+        <div className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {matches.slice(0, 3).map((p) => (
+            <PropertyCard key={p._id} property={p} />
+          ))}
         </div>
       </div>
     </div>
