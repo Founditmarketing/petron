@@ -32,12 +32,13 @@ export const siteSettings: SiteSettings = {
 };
 
 export const tenants: Tenant[] = [
-  { name: "Love's Travel Stops", category: "Fuel", domain: "loves.com" },
-  { name: "Chevron", category: "Fuel", domain: "chevron.com" },
-  { name: "Mac's Fresh Market", category: "Grocery", domain: "macsfreshmarket.com" },
-  { name: "FireHouse Subs", category: "Restaurant", domain: "firehousesubs.com" },
-  { name: "AT&T", category: "Telecom", domain: "att.com" },
-  { name: "Procter & Gamble", category: "Industrial", domain: "pg.com" },
+  { name: "Love's Travel Stops", category: "Fuel", domain: "loves.com", logo: "/logos/loves.png" },
+  { name: "Chevron", category: "Fuel", domain: "chevron.com", logo: "/logos/chevron.png" },
+  { name: "Mac's Fresh Market", category: "Grocery", domain: "macsfreshmarket.com", logo: "/logos/macs.png" },
+  { name: "FireHouse Subs", category: "Restaurant", domain: "firehousesubs.com", logo: "/logos/firehouse.png" },
+  { name: "AT&T", category: "Telecom", domain: "att.com", logo: "/logos/att.png" },
+  { name: "Procter & Gamble", category: "Industrial", domain: "pg.com", logo: "/logos/pg.png" },
+  // Government clients have no clean brand mark; they render as styled wordmarks.
   { name: "US Army Corps of Engineers", category: "Government", domain: "usace.army.mil" },
   { name: "State of Louisiana", category: "Government", domain: "louisiana.gov" },
 ];
