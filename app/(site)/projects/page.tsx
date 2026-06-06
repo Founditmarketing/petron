@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { getProjects } from "@/lib/content";
 import { ProjectsExplorer } from "@/components/map/ProjectsExplorer";
+import { PageHero } from "@/components/site/PageHero";
 
 export const metadata: Metadata = {
   title: "Project Map",
@@ -17,19 +18,16 @@ export default async function ProjectsPage({
 
   return (
     <>
-      <section className="relative overflow-hidden border-b border-line-soft px-5 pb-8 pt-24 sm:px-8">
-        <div className="bp-grid absolute inset-0" />
-        <div className="relative mx-auto max-w-7xl">
-          <p className="eyebrow mb-3">The proof is on the map</p>
-          <h1 className="font-display text-5xl uppercase leading-[0.9] text-text sm:text-7xl">
-            Building across <span className="text-amber">the U.S.</span>
-          </h1>
-          <p className="mt-4 max-w-2xl text-sm leading-relaxed text-text-dim sm:text-base">
-            Every pin is a real Petron build. Filter by type or client, then open any project for
-            its scope, client, and photos. National reach, in one glance.
-          </p>
-        </div>
-      </section>
+      <PageHero
+        compact
+        image="/images/civil.png"
+        alt="Heavy civil infrastructure work on a Petron federal project"
+        eyebrow="The proof is on the map"
+        title={<>Building across <span className="text-amber">the U.S.</span></>}
+      >
+        Every pin is a real Petron build. Filter by type or client, then open any project for
+        its scope, client, and photos. National reach, in one glance.
+      </PageHero>
       <ProjectsExplorer projects={projects} initialSlug={sp.project} />
     </>
   );

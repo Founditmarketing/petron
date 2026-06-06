@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import { getServices, getService } from "@/lib/content";
-import { ParallaxImage } from "@/components/ui/ParallaxImage";
 
 export async function generateStaticParams() {
   const services = await getServices();
@@ -30,18 +30,21 @@ export default async function ServiceDetail({
   if (!service) notFound();
 
   return (
-    <article className="pt-16">
-      <section className="relative overflow-hidden border-b border-line-soft">
+    <article>
+      <section className="relative flex min-h-[54vh] flex-col justify-end overflow-hidden border-b border-line">
         <div className="absolute inset-0">
-          <ParallaxImage src={service.image} alt={service.title} sizes="100vw" className="opacity-30" intensity={12} priority />
-          <div className="absolute inset-0 bg-gradient-to-t from-base via-base/80 to-base/40" />
+          <div className="ken-burns absolute inset-0">
+            <Image src={service.image} alt={service.title} fill priority sizes="100vw" className="object-cover opacity-55" />
+          </div>
         </div>
-        <div className="bp-grid absolute inset-0" />
-        <div className="relative mx-auto max-w-7xl px-5 pb-14 pt-20 sm:px-8">
+        <div className="absolute inset-0 bg-gradient-to-t from-base via-base/65 to-base/30" />
+        <div className="absolute inset-0 bg-gradient-to-r from-base/90 via-base/25 to-transparent" />
+        <div className="bp-grid absolute inset-0 opacity-40" />
+        <div className="relative mx-auto w-full max-w-7xl px-5 pb-12 pt-32 sm:px-8">
           <Link href="/services" className="font-mono text-xs uppercase tracking-widest text-muted hover:text-amber">
             ← All services
           </Link>
-          <h1 className="mt-6 font-display text-5xl uppercase leading-[0.9] text-text sm:text-7xl">{service.title}</h1>
+          <h1 className="mt-6 font-display text-[clamp(2.9rem,9vw,7.5rem)] uppercase leading-[0.85] text-text">{service.title}</h1>
           <p className="mt-3 font-mono text-sm uppercase tracking-wider text-amber">{service.tagline}</p>
         </div>
       </section>

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { getProperties } from "@/lib/content";
 import { PropertiesBrowser } from "@/components/properties/PropertiesBrowser";
+import { PageHero } from "@/components/site/PageHero";
 
 export const metadata: Metadata = {
   title: "Available Properties",
@@ -12,19 +13,16 @@ export default async function PropertiesPage() {
   const properties = await getProperties();
   return (
     <>
-      <section className="relative overflow-hidden border-b border-line-soft px-5 pb-10 pt-28 sm:px-8">
-        <div className="bp-grid absolute inset-0" />
-        <div className="relative mx-auto max-w-7xl">
-          <p className="eyebrow mb-3">Commercial Real Estate</p>
-          <h1 className="font-display text-5xl uppercase leading-[0.9] text-text sm:text-7xl">
-            Available <span className="text-amber">Properties</span>
-          </h1>
-          <p className="mt-4 max-w-2xl text-sm leading-relaxed text-text-dim sm:text-base">
-            Seven major strip centers and standalone spaces in high-traffic corridors. Filter by
-            type, size, and location, view them on the map, and schedule a tour.
-          </p>
-        </div>
-      </section>
+      <PageHero
+        compact
+        image="/images/strip-1.png"
+        alt="A Petron-developed retail strip center in a high-traffic corridor"
+        eyebrow="Commercial Real Estate"
+        title={<>Available <span className="text-amber">Properties</span></>}
+      >
+        Seven major strip centers and standalone spaces in high-traffic corridors. Filter by
+        type, size, and location, view them on the map, and schedule a tour.
+      </PageHero>
       <div className="pt-8">
         <PropertiesBrowser properties={properties} />
       </div>

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { getSiteSettings } from "@/lib/content";
 import { InquiryForm } from "@/components/forms/InquiryForm";
 import { PropertyMap } from "@/components/map/PropertyMap";
+import { PageHero } from "@/components/site/PageHero";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -13,18 +14,14 @@ export default async function ContactPage() {
   const settings = await getSiteSettings();
   return (
     <>
-      <section className="relative overflow-hidden border-b border-line-soft px-5 pb-12 pt-28 sm:px-8">
-        <div className="bp-grid absolute inset-0" />
-        <div className="relative mx-auto max-w-7xl">
-          <p className="eyebrow mb-3">Come do business with us</p>
-          <h1 className="font-display text-5xl uppercase leading-[0.9] text-text sm:text-7xl">
-            Let&apos;s <span className="text-amber">talk shop</span>
-          </h1>
-          <p className="mt-4 max-w-2xl text-sm leading-relaxed text-text-dim sm:text-base">
-            Whether it&apos;s a property to lease or a project to discuss, reach the right team directly.
-          </p>
-        </div>
-      </section>
+      <PageHero
+        image="/images/fuel-court.png"
+        alt="A Petron-built fuel court lit at dusk"
+        eyebrow="Come do business with us"
+        title={<>Let&apos;s <span className="text-amber">talk shop</span></>}
+      >
+        Whether it&apos;s a property to lease or a project to discuss, reach the right team directly.
+      </PageHero>
 
       <div className="mx-auto grid max-w-7xl gap-12 px-5 py-16 sm:px-8 lg:grid-cols-[1fr_1.1fr]">
         {/* Left: details */}

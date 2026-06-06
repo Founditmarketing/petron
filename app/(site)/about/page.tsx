@@ -4,6 +4,7 @@ import { getTenants } from "@/lib/content";
 import { SectionHeading, Stat } from "@/components/ui/Section";
 import { Reveal } from "@/components/ui/Reveal";
 import { TenantLogo } from "@/components/site/TenantLogo";
+import { PageHero } from "@/components/site/PageHero";
 
 export const metadata: Metadata = {
   title: "About",
@@ -36,15 +37,12 @@ export default async function AboutPage() {
   const tenants = await getTenants();
   return (
     <>
-      <section className="relative overflow-hidden border-b border-line-soft px-5 pb-16 pt-28 sm:px-8">
-        <div className="bp-grid absolute inset-0" />
-        <div className="relative mx-auto max-w-7xl">
-          <p className="eyebrow mb-3">About Petron</p>
-          <h1 className="max-w-4xl font-display text-5xl uppercase leading-[0.88] text-text sm:text-8xl">
-            A high standard,<br /><span className="text-amber">held since day one</span>
-          </h1>
-        </div>
-      </section>
+      <PageHero
+        image="/images/concrete.png"
+        alt="Freshly placed concrete and rebar on a Petron jobsite"
+        eyebrow="About Petron"
+        title={<>A high standard,<br /><span className="text-amber">held since day one</span></>}
+      />
 
       {/* Narrative */}
       <section className="mx-auto max-w-7xl px-5 py-20 sm:px-8">
